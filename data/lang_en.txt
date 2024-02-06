@@ -1,0 +1,8 @@
+title=Corremi: help to correct some papers
+buttonQuit=Quit
+buttonCopyToClipboard=Copy to clipboard
+buttonLoadFile=Load File
+buttonSave=Save
+menuFile=File
+menuLanguage=Language
+menuQuit=Quit

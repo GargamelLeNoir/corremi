@@ -1,0 +1,8 @@
+title=Corremi: aide à la correction
+buttonQuit=Quitter
+buttonCopyToClipboard=Copier dans le presse-papier
+buttonLoadFile=Charger le fichier
+buttonSave=Sauvegarder
+menuFile=Fichier
+menuLanguage=Langue
+menuQuit=Quitter
