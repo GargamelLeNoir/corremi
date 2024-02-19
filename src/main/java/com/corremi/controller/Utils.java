@@ -83,6 +83,7 @@ public class Utils {
           String line = entry.getValue().getText();
           line = line.replaceAll(CARRIAGE_RETURN, "\n");
           if (!line.contains(TOTAL) && line.contains("<") && line.contains(">")) {
+          	// If there are partial grades
             String textPartialGrade = line.substring(line.indexOf("<") + 1, line.indexOf(">"));
             try {
               total += Integer.parseInt(textPartialGrade);
@@ -91,7 +92,10 @@ public class Utils {
             }
             line = line.replaceAll("<", "").replaceAll(">", "");
           }
-          text += line + " ";
+          text += line;
+          if (!line.endsWith("\n")) {
+          	text += " ";
+          }
         }
       }
       text += "\n\n";
