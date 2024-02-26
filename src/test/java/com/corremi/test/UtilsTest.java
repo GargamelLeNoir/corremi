@@ -7,13 +7,20 @@ import java.util.List;
 import javax.swing.JCheckBox;
 import javax.swing.JTextField;
 
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import com.corremi.controller.Utils;
 import com.corremi.model.InfoTab;
 
 public class UtilsTest {
+	@Before
+	public void initializeTest() {
+		Utils.isTesting = true;
+	}
+
 	/**
 	 * - testing that if the checkbox is selected, the text appears and if it's not, nothing appears.
 	 * - testing if the <br> becomes a carriage return
@@ -49,6 +56,55 @@ public class UtilsTest {
 				+ "\n"
 				+ "";
 		Assert.assertEquals(finalText,expectedText);
+
+	}
+
+	/**
+	 * Testing if the method returns null when no file is found.
+	 */
+	@Test
+	public void testParseFileNotFound() {
+		List<InfoTab> resultParseFile = Utils.parseFile("bla");
+		Assert.assertNull(resultParseFile);
+	}
+
+	/**
+	 * Testing the content of each infotab (title, text, number of lines).
+	 */
+	@Test
+	public void testParseFile() {
+		List<InfoTab> testListTabs = Utils.parseFile("src/test/resources/corremi.txt");
+		for (InfoTab infoTab : testListTabs) {
+			infoTab.toString();
+			System.out.println(infoTab.getName());
+			System.out.println(infoTab.getListLines().size());
+		}
 		
+		Assert.assertEquals(4,testListTabs.size());
+		
+		Assert.assertEquals("Points positifs", testListTabs.get(0).getName());
+		Assert.assertEquals(2, testListTabs.get(0).getListLines().size());
+		Assert.assertEquals("Le style d'écriture est agréable.", testListTabs.get(0).getListLines().get(0).getValue().getText());
+		Assert.assertEquals("L’écriture est globalement agréable, malgré quelques fautes.", testListTabs.get(0).getListLines().get(1).getValue().getText());
+		
+		Assert.assertEquals("Points à améliorer", testListTabs.get(1).getName());
+		Assert.assertEquals(1, testListTabs.get(1).getListLines().size());
+		Assert.assertEquals("Des soucis d'expression écrite, privilégiez les phrases courtes et avec une structure simple.", testListTabs.get(1).getListLines().get(0).getValue().getText());
+		
+		Assert.assertEquals("Note globale : <total>/20", testListTabs.get(2).getName());
+		Assert.assertEquals(0, testListTabs.get(2).getListLines().size());
+		
+		Assert.assertEquals("Détail de la note :", testListTabs.get(3).getName());
+		Assert.assertEquals(5, testListTabs.get(3).getListLines().size());
+		Assert.assertEquals("Forme et facilité de lecture:  <>/ 2<br>", testListTabs.get(3).getListLines().get(0).getValue().getText());
+		Assert.assertEquals("Introduction : <>/3<br>", testListTabs.get(3).getListLines().get(1).getValue().getText());
+		Assert.assertEquals("Résumé : <>/4<br>", testListTabs.get(3).getListLines().get(2).getValue().getText());
+		Assert.assertEquals("Méthodologie : <>/3<br>", testListTabs.get(3).getListLines().get(3).getValue().getText());
+		Assert.assertEquals("Critique : <>/8<br>", testListTabs.get(3).getListLines().get(4).getValue().getText());
+	}
+
+	@After
+	public void cleanUp() {
+		Utils.isTesting = false;
 	}
 }

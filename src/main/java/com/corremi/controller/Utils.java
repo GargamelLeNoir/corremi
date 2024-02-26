@@ -20,9 +20,10 @@ public class Utils {
 
   static final String CARRIAGE_RETURN = "<br>";
   static final String TOTAL = "<total>";
+  public static boolean isTesting = false;
 
   /**
-   * Returns a map of tabs each containing a list of lines
+   * Returns a list of tabs each containing a list of lines
    *
    * @param filePath The path to the text file
    */
@@ -60,6 +61,9 @@ public class Utils {
    * @param e the exception
    */
   public static void displayErrorPopup(Exception e) {
+  	if (isTesting) {
+  		return;
+  	}
     StringWriter sw = new StringWriter();
     PrintWriter pw = new PrintWriter(sw);
     e.printStackTrace(pw);
