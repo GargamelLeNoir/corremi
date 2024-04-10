@@ -1,3 +1,4 @@
+menuItem=English
 title=Corremi: help to correct some papers
 buttonQuit=Quit
 buttonCopyToClipboard=Copy to clipboard
