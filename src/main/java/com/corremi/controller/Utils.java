@@ -108,7 +108,7 @@ public class Utils {
 
     return text;
   }
-
+//TODO: voir pour utiliser un stream
   public static JCheckBox getJCheckBoxfromDocument(Document document, List<InfoTab> listInfoTabs) {
     for (InfoTab infoTab : listInfoTabs) {
       for (Entry<JCheckBox, JTextField> entry : infoTab.getListLines()) {

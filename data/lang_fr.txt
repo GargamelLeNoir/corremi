@@ -1,3 +1,4 @@
+menuItem=Français
 title=Corremi: aide à la correction
 buttonQuit=Quitter
 buttonCopyToClipboard=Copier dans le presse-papier
