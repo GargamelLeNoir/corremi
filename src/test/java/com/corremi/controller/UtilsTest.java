@@ -1,4 +1,4 @@
-package com.corremi.test;
+package com.corremi.controller;
 
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
@@ -12,7 +12,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.corremi.controller.Utils;
 import com.corremi.model.InfoTab;
 
 public class UtilsTest {
@@ -79,21 +78,21 @@ public class UtilsTest {
 			System.out.println(infoTab.getName());
 			System.out.println(infoTab.getListLines().size());
 		}
-		
+
 		Assert.assertEquals(4,testListTabs.size());
-		
+
 		Assert.assertEquals("Points positifs", testListTabs.get(0).getName());
 		Assert.assertEquals(2, testListTabs.get(0).getListLines().size());
 		Assert.assertEquals("Le style d'écriture est agréable.", testListTabs.get(0).getListLines().get(0).getValue().getText());
 		Assert.assertEquals("L’écriture est globalement agréable, malgré quelques fautes.", testListTabs.get(0).getListLines().get(1).getValue().getText());
-		
+
 		Assert.assertEquals("Points à améliorer", testListTabs.get(1).getName());
 		Assert.assertEquals(1, testListTabs.get(1).getListLines().size());
 		Assert.assertEquals("Des soucis d'expression écrite, privilégiez les phrases courtes et avec une structure simple.", testListTabs.get(1).getListLines().get(0).getValue().getText());
-		
+
 		Assert.assertEquals("Note globale : <total>/20", testListTabs.get(2).getName());
 		Assert.assertEquals(0, testListTabs.get(2).getListLines().size());
-		
+
 		Assert.assertEquals("Détail de la note :", testListTabs.get(3).getName());
 		Assert.assertEquals(5, testListTabs.get(3).getListLines().size());
 		Assert.assertEquals("Forme et facilité de lecture:  <>/ 2<br>", testListTabs.get(3).getListLines().get(0).getValue().getText());

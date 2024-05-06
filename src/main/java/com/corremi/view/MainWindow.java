@@ -68,7 +68,7 @@ public class MainWindow {
 	private String currentLanguage = "./data/lang_fr.txt";
 	List<InfoTab> listInfoTabs;
 
-	// TODO: stream in utils / construction du projet en maven
+	// TODO:construction du projet en maven
 	/**
 	 * Launch the application.
 	 */
@@ -101,7 +101,7 @@ public class MainWindow {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	void initialize() {
 		this.actionListener = new ActionListenerImpl(this);
 		this.frmCorremi = new JFrame();
 		this.frmCorremi.setMinimumSize(new Dimension(800, 600));
@@ -120,8 +120,6 @@ public class MainWindow {
 		this.fileMenu.add(this.optionLangMenu);
 
 		ButtonGroup languageGroup = new ButtonGroup();
-
-
 
 		this.menuItemQuit = new JMenuItem("Quit");
 		this.menuItemQuit.addActionListener(this.actionListener);
@@ -189,7 +187,7 @@ public class MainWindow {
 						}
 					}
 				} catch (IOException e) {
-					LOGGER.error("Errorin menuItem",e);
+					LOGGER.error("Error in menuItem",e);
 				}
 			}
 		}

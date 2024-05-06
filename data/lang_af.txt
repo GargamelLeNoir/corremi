@@ -1,0 +1,9 @@
+menuItem=Vieilz franceis
+title=Corremi: aide pur amendier escrits foisonanz de mesprentures
+buttonQuit=Closture
+buttonCopyToClipboard=Escrire encor en le escrit ce que ne paroit
+buttonLoadFile=Trover et lires le escrit
+buttonSave=Fere estable
+menuFile=Regestre
+menuLanguage=Langue
+menuQuit=Closture
