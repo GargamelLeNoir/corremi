@@ -1,6 +1,7 @@
 #### Corremi
 A little utility software to help people who always have to write the same sentences in various combination. Just list the sentences that are often repeated in your texts and you'll just have to check them in Corremi to add them automatically. Originally meant to help grade papers.
 
+![Corremi_gif-ezgif com-video-to-gif-converter](https://github.com/GargamelLeNoir/corremi/assets/146751299/71de0119-8333-4f4a-9d2b-acef0adf1935)
 
 ##### Requirements
 Corremi runs on Java 8 or above that you can install here: https://www.java.com/en/download/manual.jsp
