@@ -1,4 +1,4 @@
-package com.corremi.test;
+package com.corremi.controller;
 
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
@@ -12,7 +12,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.corremi.controller.Utils;
 import com.corremi.model.InfoTab;
 
 public class UtilsTest {

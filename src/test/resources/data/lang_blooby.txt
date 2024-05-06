@@ -1,0 +1,9 @@
+menuItem=Blooby
+title=Corremi: une appli qu'elle est trop bien
+buttonQuit=pouf
+buttonCopyToClipboard=boutonbejhkekju
+buttonLoadFile=kkeioeops
+buttonSave=controleS
+menuFile=blop
+menuLanguage=bjzek
+menuQuit=lk,moml;m
