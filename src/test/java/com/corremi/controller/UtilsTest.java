@@ -7,16 +7,20 @@ import java.util.List;
 import javax.swing.JCheckBox;
 import javax.swing.JTextField;
 
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+
 import com.corremi.model.InfoTab;
 
 public class UtilsTest {
+
 	@BeforeAll
 	public static void initializeTest() {
+
 		Utils.isTesting = true;
 	}
 
@@ -25,6 +29,7 @@ public class UtilsTest {
 	 * nothing appears. - testing if the <br>
 	 * becomes a carriage return - testing that the total equals the sum of all the
 	 * partial grades.
+
 	 * 
 	 */
 	@Test
@@ -37,19 +42,23 @@ public class UtilsTest {
 		selectedBox.setSelected(true);
 		unselectedBox.setSelected(false);
 		tab1.getListLines().add(new SimpleEntry<JCheckBox, JTextField>(selectedBox, new JTextField("Line1 <br>")));
+
 		tab1.getListLines().add(new SimpleEntry<JCheckBox, JTextField>(selectedBox, new JTextField("Line12 <2>.")));
 		tab1.getListLines().add(new SimpleEntry<JCheckBox, JTextField>(selectedBox, new JTextField("Line123 <4>.")));
 		tab1.getListLines().add(new SimpleEntry<JCheckBox, JTextField>(selectedBox, new JTextField("line1234 <total>.")));
 		tab1.getListLines().add(new SimpleEntry<JCheckBox, JTextField>(selectedBox, new JTextField("line12345 <a>.")));
 		tab1.getListLines().add(new SimpleEntry<JCheckBox, JTextField>(selectedBox, new JTextField("line123456 <>.")));
 		tab2.getListLines().add(new SimpleEntry<JCheckBox, JTextField>(unselectedBox, new JTextField("line2")));
+
 		tabs.add(tab1);
 		tabs.add(tab2);
 		String finalText = Utils.getFinalText(tabs);
 		System.out.println(finalText);
+
 		String expectedText = "tab1\n" + "Line1 \n" + "Line12 2. Line123 4. line1234 6. line12345 a. line123456 . \n" + "\n"
 				+ "tab2\n" + "\n" + "\n" + "";
 		Assertions.assertEquals(finalText, expectedText);
+
 
 	}
 
@@ -59,7 +68,9 @@ public class UtilsTest {
 	@Test
 	public void testParseFileNotFound() {
 		List<InfoTab> resultParseFile = Utils.parseFile("bla");
+
 		Assertions.assertNull(resultParseFile);
+
 	}
 
 	/**
@@ -73,6 +84,7 @@ public class UtilsTest {
 			System.out.println(infoTab.getName());
 			System.out.println(infoTab.getListLines().size());
 		}
+
 
 		Assertions.assertEquals(4, testListTabs.size());
 
@@ -104,6 +116,7 @@ public class UtilsTest {
 
 	@AfterAll
 	public static void cleanUp() {
+
 		Utils.isTesting = false;
 	}
 }
