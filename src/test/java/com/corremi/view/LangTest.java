@@ -6,7 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 
@@ -23,11 +23,11 @@ class LangTest {
 		mw.initialize();
 
 		//Assert - je dois avoir un menu item "blooby"
-		Assert.assertEquals(4, mw.optionLangMenu.getItemCount());
-		Assert.assertEquals("Vieilz franceis", mw.optionLangMenu.getItem(0).getText());
-		Assert.assertEquals("Français", mw.optionLangMenu.getItem(3).getText());
-		Assert.assertEquals("English", mw.optionLangMenu.getItem(2).getText());
-		Assert.assertEquals("Blooby", mw.optionLangMenu.getItem(1).getText());
+		Assertions.assertEquals(4, mw.optionLangMenu.getItemCount());
+		Assertions.assertEquals("Vieilz franceis", mw.optionLangMenu.getItem(0).getText());
+		Assertions.assertEquals("Français", mw.optionLangMenu.getItem(3).getText());
+		Assertions.assertEquals("English", mw.optionLangMenu.getItem(2).getText());
+		Assertions.assertEquals("Blooby", mw.optionLangMenu.getItem(1).getText());
 
 		//Clean up
 		new File("./data/lang_blooby.txt").delete();
