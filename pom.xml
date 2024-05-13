@@ -4,12 +4,16 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>corremi</groupId>
 	<artifactId>corremi</artifactId>
-	<version>1.2.0</version>
+	<version>2.0.0</version>
 	<name>Corremi</name>
 	<description>Little software speeding up the process of commenting and
 		grading papers.</description>
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.1</version>
@@ -19,6 +23,75 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.2.0</version>
+					<executions>
+						<execution>
+							<id>copy-resource-jar</id>
+							<phase>verify</phase>
+							<goals>
+								<goal>copy-resources</goal>
+							</goals>
+							<configuration>
+								<outputDirectory>
+									${basedir}/target/corremi</outputDirectory>
+								<resources>
+									<resource>
+										<directory>target</directory>
+										<includes>
+											<include>corremi-2.0.0.jar</include>
+										</includes>
+									</resource>
+								</resources>
+							</configuration>
+						</execution>
+						<execution>
+							<id>copy-resource-readme</id>
+							<phase>verify</phase>
+							<goals>
+								<goal>copy-resources</goal>
+							</goals>
+							<configuration>
+								<outputDirectory>
+									${basedir}/target/corremi</outputDirectory>
+								<resources>
+									<resource>
+										<directory>./</directory>
+										<includes>
+											<include>README_fr.md</include>
+										</includes>
+									</resource>
+								</resources>
+							</configuration>
+						</execution>
+						<execution>
+							<id>copy-resource-data</id>
+							<phase>verify</phase>
+							<goals>
+								<goal>copy-resources</goal>
+							</goals>
+							<configuration>
+								<outputDirectory>
+									${basedir}/target/corremi/data</outputDirectory>
+								<resources>
+									<resource>
+										<directory>data</directory>
+										<includes>
+											<include>*</include>
+										</includes>
+									</resource>
+								</resources>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
 	</build>
 	<dependencies>
 		<dependency>
@@ -37,9 +110,15 @@
 			<version>4.2</version>
 		</dependency>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.8.1</version>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.6.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.6.2</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
